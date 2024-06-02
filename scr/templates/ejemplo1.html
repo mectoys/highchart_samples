@@ -1,0 +1,36 @@
+ {% extends './base.html' %}
+
+ {%  block title %}Ejemplo 1 {% endblock %}
+
+ {% block body %}
+
+ <div id="container" style="min-width: 310px; height: 400px; margin:0 auto"></div>
+
+ <script type="text/javascript">
+
+  document.addEventListener('DOMContentLoaded',function(){
+   Highcharts.chart('container',{
+      chart:{
+       type: 'bar'
+      },
+
+      title:{
+       text:'Ejemplo de Gráfico de Highchart'
+      },
+      xAxis:{
+       categories:['A','B','C','D','E']
+      },
+      yAxis:{
+       title:{
+         text: 'Valores'
+       }
+      },
+      series: [{
+       name:'Datos',
+       data: {{ data | tojson }}
+       }]
+    });
+  });
+
+ </script>
+ {% endblock %}
