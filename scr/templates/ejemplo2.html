@@ -1,0 +1,56 @@
+ {% extends './base.html' %}
+
+ {%  block title %}Ejemplo 2 {% endblock %}
+
+ {% block body %}
+
+ <div id="container" style="min-width: 310px; height: 400px; margin:0 auto"></div>
+
+ <script type="text/javascript">
+
+  document.addEventListener('DOMContentLoaded',function(){
+    var data ={{ data | tojson}};
+
+    var seriesData = Object.keys(data.canales).map(function(canal){
+      return {
+        name: canal,
+        data: data.canales[canal]
+      };
+    });
+
+    Highcharts.chart('container',{
+
+     chart:{
+       type: 'line'
+     },
+     title:{
+       text:'Ventas Mensuales'
+     },
+
+     subtitle:{
+       text: '2023-2024'
+     },
+
+     xAxis:{
+       categories:data.meses
+     },
+     yAxis:{
+       title:{
+         text: 'Monto Acumulado'
+       }
+     },
+     plotOptions:{
+       line:{
+         dataLabels:{
+          enabled:true
+         },
+         enableMouseTracking: false
+       }
+     },
+      series : seriesData
+    });
+
+  });
+
+ </script>
+ {% endblock %}
