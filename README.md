@@ -1,4 +1,4 @@
-![HighChart_2_portada](https://github.com/mectoys/highchart_samples/assets/7143758/2ca227b9-b738-4391-93ad-5478be345ab2)
+
 
 En este tercer video de nuestra serie sobre Highcharts, aprenderemos cómo utilizar esta poderosa librería de visualización gráfica junto con Flask y SQL Server para crear gráficos lineales. 
 
