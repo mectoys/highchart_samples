@@ -1,0 +1,60 @@
+{% extends './base.html' %}
+
+{% block title %} Ejemplo 3 {% endblock %}
+{% block body %}
+
+    <div id="container" style="width: 600px; height:400px; margin:0 auto"></div>
+
+<script type="text/javascript">
+      document.addEventListener('DOMContentLoaded',function(){
+        //variables de entorno
+        var categories ={{ categories | tojson }}
+        var seriesdata ={{ series_data | tojson }}
+        //configuración del gráfico
+
+        Highcharts.chart('container',{
+        chart:{
+                type: 'column'
+              },
+           //titulo del grafico
+           title:{
+                text :'Datos de Cobranza'
+           },
+           subtitle:{
+            text: 'por Zonas'
+            },
+          //config. eje X
+          xAxis:{
+            categories : categories,
+            crosshair: true,
+            accessibility :{
+                description:'Zona de Cobranza'
+                }
+             },
+             //Config eje Y
+          yAxis:{
+                min:0,
+                title: {
+                        text: 'Monto Cobrado'
+                        }
+                },
+            //tooltip
+           tooltip:{
+                valueSuffix : ' ($)'
+                },
+
+           //opciones del Plot
+
+           plotOptions:{
+                    column:{
+                        pointPadding :0.2,
+                        borderWidth: 0
+                        }
+             },
+             //Serie de Datos
+             series: seriesdata
+          });
+    });
+
+</script>
+ {% endblock %}

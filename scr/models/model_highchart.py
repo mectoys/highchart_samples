@@ -16,3 +16,16 @@ class model_highchart:
             except Exception as e:
                 print(f"Error en la consulta {str(e)}")
                 return []
+
+    @staticmethod
+    def get_ejemplo_3():
+        connection = get_connection_SQLSERVER()
+        with connection.cursor() as cursor:
+            try:
+                query = "select zona_cobranza,forma_de_pago,monto_cobrado from cobranzaxzona"
+                cursor.execute(query)
+                result = cursor.fetchall()
+                return result
+            except Exception as e:
+                print(f"Error en la consulta {str(e)}")
+                return []

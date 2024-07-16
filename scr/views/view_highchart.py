@@ -31,3 +31,34 @@ def sample2():
         data['canales'][canal][mes] += monto
     print(data)
     return render_template('ejemplo2.html', data=data)
+
+
+@main.route('/ejemplo3')
+def sample3():
+    result = model_highchart.get_ejemplo_3()
+    data = {}
+    # procesar datos
+    for row in result:
+        zona = row.zona_cobranza
+        forma_pago = row.forma_de_pago
+        monto = row.monto_cobrado
+        if zona not in data:
+            data[zona] = {}
+        data[zona][forma_pago] = monto
+    # prepara las categorias(zonas)
+    # eje x grafico
+    categories = list(data.keys())
+    # preparar los datos de las serie
+    series_data = []
+    formas_pago = list(set(fp for zona in data.values() for fp in zona.keys()))
+    # organizar los datos de la serie
+    for forma_pago in formas_pago:
+        data_for_forma_pago = [data[zona].get(forma_pago, 0) for zona in categories]
+        series_data.append(
+            {
+                'name': forma_pago,
+                'data': data_for_forma_pago
+            }
+        )
+        print(series_data)
+    return render_template('ejemplo3.html', categories=categories, series_data=series_data)
