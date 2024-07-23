@@ -1,4 +1,5 @@
-
+![HighChart_3_portada](https://github.com/user-attachments/assets/4e4e0a47-2e81-454c-a5ab-0355031f690f)
+En este video, te mostraré cómo crear gráficos de barra impresionantes usando Highcharts, Python, y Flask. La información que visualizaremos proviene de una base de datos en SQL Server y representa datos de zonas de cobranza con tipos de pago y sus respectivos montos.
 
 En este tercer video de nuestra serie sobre Highcharts, aprenderemos cómo utilizar esta poderosa librería de visualización gráfica junto con Flask y SQL Server para crear gráficos lineales. 
 
