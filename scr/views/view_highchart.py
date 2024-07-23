@@ -62,3 +62,20 @@ def sample3():
         )
         print(series_data)
     return render_template('ejemplo3.html', categories=categories, series_data=series_data)
+
+
+@main.route('/ejemplo4')
+def sample4():
+    result = model_highchart.get_ejemplo_4()
+    print(result)
+    data = {
+        'meses': model_highchart.get_month_names(),
+        'montos': [0] * 12  # inicializar con 12 ceros
+    }
+    for row in result:
+        mes = row.mes
+        if 1 <= mes <= 12:  # asegurar que este dentro del rango
+            monto = float(row.monto)
+            data['montos'][mes - 1] += monto
+        print(data)
+    return render_template('ejemplo4.html', data=data)

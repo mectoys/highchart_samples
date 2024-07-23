@@ -29,3 +29,35 @@ class model_highchart:
             except Exception as e:
                 print(f"Error en la consulta {str(e)}")
                 return []
+
+    @staticmethod
+    def get_ejemplo_4():
+        connection = get_connection_SQLSERVER()
+        with connection.cursor() as cursor:
+            try:
+                query = "select month(fecha)as mes, monto from Ventas"
+                cursor.execute(query)
+                result = cursor.fetchall()
+                return result
+            except Exception as e:
+                print(f"Error en la consulta {str(e)}")
+                return []
+
+    @staticmethod
+    def get_month_names():
+        connection = get_connection_SQLSERVER()
+        months = []
+        with connection.cursor() as cursor:
+            try:
+                query = "select DATENAME(MONTH,fecha)as month_name " \
+                        "from Ventas group by DATENAME(MONTH,fecha), MONTH(fecha) ORDER BY MONTH(fecha)"
+                cursor.execute(query)
+                rows = cursor.fetchall()
+                for row in rows:
+                    months.append(row.month_name)
+
+                return months
+                print(months)
+            except Exception as e:
+                print(f"Error en la consulta {str(e)}")
+                return []

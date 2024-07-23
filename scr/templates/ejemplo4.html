@@ -1,0 +1,105 @@
+{% extends './base.html' %}
+
+{% block title  %}Ejemplo4 {% endblock %}
+{% block body %}
+
+    <figure class ="highcharts-figure">
+        <div id ="container"></div>
+        <p class="higcharts-description">
+               Gráfico con 3 botones que puedes facilmente cambiar el tipo de gráfico.
+        </p>
+
+        <button id="plain">Plain</button>
+        <button id="inverted">Inverted</button>
+        <button id="polar">Polar</button>
+    </figure>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function(){
+            var data = {{ data | tojson}};
+           const chart = Highcharts.chart('container',{
+                   title:{
+                           text: 'Venta  por Mes',
+                           align : 'left'
+                    },
+                   subtitle:{
+                            text: 'Año de Ventas: 2024'+
+                            '<a href="https://www.youtube.com"' +
+                            'target="_blank">youtube</a>',
+                            align:'left'
+                            },
+                    colors:[
+                        '#4caefe', '#3fbdf3', '#35c3e8', '#2bc9dc', '#20cfe1',
+                            '#16d4e6', '#0dd9db', '#03dfd0', '#00e4c5', '#00e9ba',
+                            '#00eeaf', '#23e274'
+                        ],
+                    //config eje X
+                    xAxis:{
+                        categories: data.meses
+                    },
+
+                    series:[{
+                        type: 'column',
+                        name: 'Montos',
+                        borderRadius:5,
+                        colorByPoint:true,
+                        data: data.montos,
+                        showInLegend:false
+                    }]
+            });
+            //boton Plain
+            document.getElementById('plain').addEventListener('click',()=>{
+                chart.update({
+                    chart:{
+                        inverted:false,
+                        polar:false,
+                        type:'column'
+                        },
+                    subtitle:{
+                                text: 'Año de Ventas: 2024'+
+                                '<a href="https://www.youtube.com"' +
+                                'target="_blank">youtube</a>',
+                                align:'left'
+                                }
+                });
+            });
+
+            //boton polar
+            document.getElementById('polar').addEventListener('click',()=>{
+                chart.update({
+                    chart:{
+                        inverted:false,
+                        polar:true,
+                         type:'column'
+
+                        },
+                    subtitle:{
+                                text: 'Año de Ventas: 2024'+
+                                '<a href="https://www.youtube.com"' +
+                                'target="_blank">youtube</a>',
+                                align:'left'
+                                }
+                });
+            });
+
+          //boton inverted
+            document.getElementById('inverted').addEventListener('click',()=>{
+                chart.update({
+                    chart:{
+                        inverted:true,
+                        polar:false,
+                         type:'column'
+                        },
+                    subtitle:{
+                                text: 'Año de Ventas: 2024'+
+                                '<a href="https://www.youtube.com"' +
+                                'target="_blank">youtube</a>',
+                                align:'left'
+                                }
+                });
+            });
+
+
+        });
+
+    </script>
+{% endblock %}
