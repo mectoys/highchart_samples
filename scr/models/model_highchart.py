@@ -44,6 +44,22 @@ class model_highchart:
                 return []
 
     @staticmethod
+    def get_ejemplo_5():
+        connection = get_connection_SQLSERVER()
+        with connection.cursor() as cursor:
+            try:
+                #pivot
+                query = "SELECT  country, gold, silver, bronze FROM " \
+                        " (select country ,quantities,medals from olympic_medals) As sourceTable" \
+                        " PIVOT (SUM(quantities)FOR medals IN([gold],[silver],[bronze]))as PivotTable"
+                cursor.execute(query)
+                result = cursor.fetchall()
+                return result
+            except Exception as e:
+                print(f"Error en la consulta {str(e)}")
+                return []
+
+    @staticmethod
     def get_month_names():
         connection = get_connection_SQLSERVER()
         months = []

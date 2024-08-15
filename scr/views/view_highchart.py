@@ -79,3 +79,24 @@ def sample4():
             data['montos'][mes - 1] += monto
         print(data)
     return render_template('ejemplo4.html', data=data)
+
+
+@main.route('/ejemplo5')
+def sample5():
+    result = model_highchart.get_ejemplo_5()
+
+    data = {
+        'paises': [],
+        'oro': [],
+        'plata': [],
+        'bronce': [],
+    }
+    # insertar datos
+    for row in result:
+        data['paises'].append(row.country)
+        data['oro'].append(row.gold)
+        data['plata'].append(row.silver)
+        data['bronce'].append(row.bronze)
+
+    print(data)
+    return render_template('ejemplo5.html', data=data)
