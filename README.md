@@ -1,3 +1,6 @@
+![HighChart_5_portada](https://github.com/user-attachments/assets/01d0d654-a6ff-49e0-bdb1-7e3e5c164d4a)
+Hola comunidad!, te mostraré cómo crear un gráfico interactivo en Highcharts de los 5 primeros países que ganaron medallas en los Juegos Olímpicos Francia 2024, utilizando Python y Flask. Copiaremos los datos desde Wikipedia, organizarlos en un archivo Excel, importarlos a SQL Server, y transformarlos usando las funciones UNPIVOT y PIVOT.
+
 ![HighChart_4_portada](https://github.com/user-attachments/assets/d362e550-5c9e-4227-a6ec-816f73f83c08)
 En este video, aprenderás a crear gráficos interactivos utilizando la poderosa biblioteca JavaScript HighChart junto con Python Flask y SQL Server. Este ejemplo se centra en las ventas mensuales, mostrando cómo construir gráficos de barras y cambiar entre tres tipos de visualización: Plain, Inverted y Polar.
 
