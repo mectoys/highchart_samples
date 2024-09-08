@@ -1,4 +1,9 @@
-![HighChart_5_portada](https://github.com/user-attachments/assets/01d0d654-a6ff-49e0-bdb1-7e3e5c164d4a)
+![HighChart_7_portada](https://github.com/user-attachments/assets/ced3fefc-a062-4235-9a1e-bfbbdf6d7579)
+En este video te llevo paso a paso en la creación de mapas interactivos utilizando Highcharts, GeoJSON, y Flask. Primero exploramos los conceptos teóricos detrás de GeoJSON, su estructura, y cómo se utiliza para representar datos geográficos. Luego, te mostraré cómo preparar las tablas necesarias para trabajar con datos geográficos, como la tabla de paises y data_geo, que nos servirán para integrar información de México en un mapa interactivo.
+
+En la parte final del video, nos sumergimos en la programación con Flask y JavaScript, donde integrarás Highcharts para visualizar el mapa de México de manera dinámica, mostrando diferentes datos a partir de tu base de datos. Este es solo el comienzo, ya que en futuras partes del curso profundizaremos aún más.
+
+}![HighChart_5_portada](https://github.com/user-attachments/assets/01d0d654-a6ff-49e0-bdb1-7e3e5c164d4a)
 Hola comunidad!, te mostraré cómo crear un gráfico interactivo en Highcharts de los 5 primeros países que ganaron medallas en los Juegos Olímpicos Francia 2024, utilizando Python y Flask. Copiaremos los datos desde Wikipedia, organizarlos en un archivo Excel, importarlos a SQL Server, y transformarlos usando las funciones UNPIVOT y PIVOT.
 
 ![HighChart_4_portada](https://github.com/user-attachments/assets/d362e550-5c9e-4227-a6ec-816f73f83c08)
