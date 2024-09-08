@@ -1,0 +1,79 @@
+{% extends './base.html' %}
+
+{% block title %}  Ejemplo 6 {% endblock %}
+
+{%  block body %}
+    <script src="{{ url_for('static', filename='js/util_highchart.js') }}"></script>
+     <div class="row">
+            <div class="col-sm-12">
+                <div id="container" style="height: 700px;  min-width: 510px; max-width: 800px;  margin: 0 auto;" ></div>
+            </div>
+     </div>
+
+    <!--- para ejemplo 6 --->
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+
+       var varGeoData='https://code.highcharts.com/mapdata/countries/mx/mx-all.geo.json';
+
+        var formData = {
+            paises: 1
+        };
+
+        Ajax_HighChart(formData, '/ejemplo6map').then(function(response) {
+            // Aquí actualizas el mapa y los datos
+            LoadMap(varGeoData, response);
+        })
+        .catch(function(error) {
+            alert('Error al cargar datos: ' + error);
+        });
+
+    function LoadMap(geoLink, data) {
+        (async () => {
+
+            const topology = await fetch(geoLink).then(response => response.json());
+
+            Highcharts.mapChart('container', {
+                chart: {
+                    map: topology
+                },
+                title: {
+                    text: 'Highcharts Maps basic demo'
+                },
+                mapNavigation: {
+                    enabled: true,
+                    buttonOptions: {
+                        verticalAlign: 'bottom'
+                    }
+                },
+                colorAxis: {
+                    min: 0
+                },
+                series: [{
+                    data: data.map(function(item) {
+                        return {
+                            'hc-key': item[0],
+                            value: item[1],
+                            name: item[2]
+                        };
+                    }),
+                    name: 'Sales Data',
+                    states: {
+                        hover: {
+                            color: '#BADA55'
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}: $ {point.value}'
+                    }
+                }]
+            });
+        })();
+    }
+});
+
+</script>
+
+
+{%  endblock %}

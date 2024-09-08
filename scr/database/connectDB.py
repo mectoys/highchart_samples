@@ -1,8 +1,26 @@
 import os
 import pyodbc
+import mysql.connector
 from dotenv import load_dotenv
 
 load_dotenv("parameters.env")
+
+
+def get_connection_MYSQL():
+    print(os.getenv('MY_SQL_HOST'))
+    try:
+        return mysql.connector.connect(
+
+            host=os.getenv('MY_SQL_HOST'),
+            user=os.getenv('MY_SQL_USER'),
+            password=os.getenv('MY_SQL_PASSWORD'),
+            database=os.getenv('MY_SQL_DATABASE')
+        )
+
+    except mysql.connector.Error as err:
+        raise err
+
+
 
 
 def get_connection_SQLSERVER():

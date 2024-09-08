@@ -12,46 +12,48 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
-        <!--- highcharts-->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
 </head>
 <body>
 
 <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">HIGHCHART</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">HIGHCHART</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{ url_for('highchart_bp.sample1') }}">Ejemplo 1</a>
+              <a class="nav-link active" aria-current="page" href="{{ url_for('highchart_bp.maintenance') }}">Ejemplo 1</a>
         </li>
+
         <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{ url_for('highchart_bp.sample2') }}">Ejemplo 2</a>
+              <a class="nav-link active" aria-current="page" href="{{ url_for('highchart_bp.spedometer') }}">Ejemplo 2</a>
         </li>
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ url_for('highchart_bp.sample3') }}">Ejemplo 3</a>
         </li>
+
          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"  href="{{ url_for('highchart_bp.sample4') }}">Ejemplo 4</a>
+            <a class="nav-link active" aria-current="page" href="{{ url_for('highchart_bp.sample4') }}">Ejemplo 4</a>
         </li>
+
          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ url_for('highchart_bp.sample5') }}">Ejemplo 5</a>
         </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('highchart_bp.sample6') }}">Ejemplo 6</a>
+        </li>
+
       </ul>
 
       <span class="navbar-text"> HIGHCHART </span>
     </div>
   </div>
 </nav>
+
 </header>
 
     <div class="container py-3">
@@ -62,6 +64,33 @@
 <!-- Bootstrap 5.0.2 incluye la biblioteca Popper, por lo que no necesitas cargarla por separado. -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<!--- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>-->
+
+        <!--- highcharts-->
+<!--- Lib. para mapas-->
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+
+<!---
+Estás incluyendo tanto highmaps.js como highcharts.js. Si solo necesitas mapas, puedes eliminar highcharts.js ya
+ que highmaps.js también incluye las funcionalidades básicas de
+ -->
+   <!---  <script src="https://code.highcharts.com/highcharts.js"></script>-->
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/annotations.js"></script>
+    <script src="https://code.highcharts.com/modules/boost.js"></script>
+    <script src="https://code.highcharts.com/modules/pattern-fill.js"></script>
+    <script src="https://code.highcharts.com/modules/xrange.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+    <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
 
 </body>
 </html>
